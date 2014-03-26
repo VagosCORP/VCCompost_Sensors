@@ -26,7 +26,6 @@ public class LayoutSensorsController implements Initializable {
 	int[][] aa = new int[2][];
 	int[] a = {1,2,3,4,5};
 	
-	
 	List<Float> sen1;
 	List<Float> sen2;
 	List<Float> sen3;
