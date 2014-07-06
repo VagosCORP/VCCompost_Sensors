@@ -3,19 +3,19 @@ package com.vagoscorp.vccompost.sensors;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vagoscorp.vccompost.sensors.Procesar_Temperaturas.OnTempProcessListener;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
-import libraries.vagoscorp.comunication.Eventos.OnComunicationListener;
-import libraries.vagoscorp.comunication.Eventos.OnConnectionListener;
-import libraries.vagoscorp.comunication.Eventos.OnTimeOutListener;
-import libraries.vagoscorp.comunication.fx.Comunic;
-import libraries.vagoscorp.comunication.fx.TimeOut;
+import vclibs.communication.Eventos.OnComunicationListener;
+import vclibs.communication.Eventos.OnConnectionListener;
+import vclibs.communication.Eventos.OnTimeOutListener;
+import vclibs.communication.javafx.Comunic;
+import vclibs.communication.javafx.TimeOut;
+
+import com.vagoscorp.vccompost.sensors.Procesar_Temperaturas.OnTempProcessListener;
 
 public class Adquirir_Temperaturas extends Task<Integer>{
 	

@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.vagoscorp.vccompost.sensors.Adquirir_Temperaturas.listener;
-
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import libraries.vagoscorp.comunication.fx.Comunic;
+import vclibs.communication.javafx.Comunic;
+
+import com.vagoscorp.vccompost.sensors.Adquirir_Temperaturas.listener;
 
 public class LayoutSensorsController implements Initializable {
 
@@ -23,8 +23,6 @@ public class LayoutSensorsController implements Initializable {
 	Comunic comunic;
 	Thread th;
 	String jabapar = "";
-	int[][] aa = new int[2][];
-	int[] a = {1,2,3,4,5};
 	
 	List<Float> sen1;
 	List<Float> sen2;
@@ -36,10 +34,8 @@ public class LayoutSensorsController implements Initializable {
 	List<Float> sen8;
 	
 	@FXML Button But1;
-	@FXML
-	static TextArea text;
-	@FXML
-	static Label Label1;
+	@FXML TextArea text;
+	@FXML Label Label1;
 	@FXML ListView<Float> list1;
 	@FXML ListView<Float> list2;
 	@FXML ListView<Float> list3;
@@ -100,7 +96,8 @@ public class LayoutSensorsController implements Initializable {
 						" S2F = "+at.resF[1]+
 						" S3F = "+at.resF[2]+
 						" S4F = "+at.resF[3]+
-						" \r\nS5F = "+at.resF[4]+
+						" \r\n"  +
+						" S5F = "+at.resF[4]+
 						" S6F = "+at.resF[5]+
 						" S7F = "+at.resF[6]+
 						" S8F = "+at.resF[7]);

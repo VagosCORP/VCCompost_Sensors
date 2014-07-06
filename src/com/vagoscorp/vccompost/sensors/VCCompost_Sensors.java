@@ -7,8 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import libraries.vagoscorp.comunication.Eventos.OnComunicationListener;
-import libraries.vagoscorp.comunication.fx.Comunic;
+import vclibs.communication.Eventos.OnComunicationListener;
+import vclibs.communication.javafx.Comunic;
 
 public class VCCompost_Sensors extends Application implements OnComunicationListener {
 	
