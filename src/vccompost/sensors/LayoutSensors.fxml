@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vccompost.sensors.LayoutSensorsController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Button fx:id="But1" layoutX="131.0" layoutY="102.0" mnemonicParsing="false" onAction="#But1Click" text="Button" />
+    <TextArea fx:id="text" layoutX="221.0" layoutY="529.0" prefHeight="225.0" prefWidth="825.0" wrapText="true" />
+    <Label id="label" fx:id="Label1" layoutX="131.0" layoutY="315.0" prefHeight="27.0" prefWidth="71.0" text="Label" />
+    <ListView fx:id="list1" layoutX="221.0" layoutY="102.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list2" layoutX="429.0" layoutY="102.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list3" layoutX="638.0" layoutY="102.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list4" layoutX="846.0" layoutY="102.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list5" layoutX="221.0" layoutY="315.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list6" layoutX="429.0" layoutY="315.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list7" layoutX="638.0" layoutY="315.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView fx:id="list8" layoutX="846.0" layoutY="315.0" prefHeight="200.0" prefWidth="200.0" />
+  </children>
+</AnchorPane>

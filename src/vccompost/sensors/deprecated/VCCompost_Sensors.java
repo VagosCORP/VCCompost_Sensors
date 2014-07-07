@@ -1,28 +1,24 @@
-package com.vagoscorp.vccompost.sensors;
+package vccompost.sensors.deprecated;
 	
-import java.util.List;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import vclibs.communication.Eventos.OnComunicationListener;
-import vclibs.communication.javafx.Comunic;
 
-public class VCCompost_Sensors extends Application implements OnComunicationListener {
+public class VCCompost_Sensors extends Application /*implements OnComunicationListener*/ {
 	
-	Procesar_Temperaturas pt;
-	Comunic comunic;
-	Thread th;
-	List<Float> sen1;
-	List<Float> sen2;
-	List<Float> sen3;
-	List<Float> sen4;
-	List<Float> sen5;
-	List<Float> sen6;
-	List<Float> sen7;
-	List<Float> sen8;
+//	Procesar_Temperaturas pt;
+//	Comunic comunic;
+//	Thread th;
+//	List<Float> sen1;
+//	List<Float> sen2;
+//	List<Float> sen3;
+//	List<Float> sen4;
+//	List<Float> sen5;
+//	List<Float> sen6;
+//	List<Float> sen7;
+//	List<Float> sen8;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -115,10 +111,10 @@ public class VCCompost_Sensors extends Application implements OnComunicationList
 //		pt.execute();
 //	}
 
-	@Override
-	public void onDataReceived(String dato) {
+//	@Override
+//	public void onDataReceived(String dato) {
 //		LayoutSensorsController.text.appendText(dato);
 //		LayoutSensorsController.Label1.setText(dato);
-	}
+//	}
 	
 }
