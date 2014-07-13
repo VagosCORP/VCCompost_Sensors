@@ -41,7 +41,7 @@ public class LayoutSensorsController implements Initializable {
 	@FXML ListView<Float> list8;
 	
 	@FXML public void But1Click() {
-		text.appendText("Adquisición Iniciada!\r\n");
+		text.appendText("Adquisicion Iniciada!\r\n");
 		at = new Adquirir_Temperaturas();
 		at.setAdListener(new AdListener() {
 
@@ -77,7 +77,7 @@ public class LayoutSensorsController implements Initializable {
 					
 					@Override
 					public void run() {
-						text.appendText("Adquisición Terminada!\r\n");
+						text.appendText("Adquisicion Terminada!\r\n");
 						itemss1.add(at.sen[1]);
 						itemss2.add(at.sen[2]);
 						itemss3.add(at.sen[3]);

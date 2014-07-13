@@ -8,17 +8,20 @@ import javafx.event.EventHandler;
 import javafx.util.Duration;
 import vclibs.communication.Eventos.OnComunicationListener;
 import vclibs.communication.Eventos.OnConnectionListener;
+import vclibs.communication.Eventos.OnTimeOutListener;
 import vclibs.communication.javafx.Comunic;
+import vclibs.communication.javafx.TimeOut;
 
 public class Adquirir_Temperaturas extends Task<Integer> {
 
-	boolean estable = false;
-	Thread th;
+	public boolean estable = false;
+	Thread th, thto;
 	Comunic comunic;
 	Timeline timer;
+	TimeOut timeout;
 	String tarea = "";
-	public float[] sen		= { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	float[] sen0	= { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	public float[] sen	= { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	float[] sen0		= { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	public static float ERROR = (float) 999.9999;
 
 	AdListener adListener;
@@ -66,7 +69,7 @@ public class Adquirir_Temperaturas extends Task<Integer> {
 		String[] p1 = datos.split("#");
 		int f = p1.length;
 		if (f <= 4) {
-			System.out.println("Algo salió mal");
+			System.out.println("Algo salio mal");
 		} else if (f == 5) {
 			String[] vals = p1[1].split("&");
 			int l = vals.length;
@@ -109,10 +112,36 @@ public class Adquirir_Temperaturas extends Task<Integer> {
 
 	public void adquirir(int n250) {
 		comunic = new Comunic("20.0.0.6", 2000);
+		comunic.debug = false;
+//		comunic.idebug = false;
+//		comunic.edebug = false;
 		comunic.setConnectionListener(new OnConnectionListener() {
 
 			@Override
 			public void onConnectionstablished() {
+				timeout = new TimeOut(2000);
+//				timeout.idebug = false;
+				timeout.edebug = false;
+				timeout.setTimeOutListener(new OnTimeOutListener() {
+
+					@Override
+					public void onTimeOutEnabled() {
+
+					}
+
+					@Override
+					public void onTimeOutCancelled() {
+						
+					}
+
+					@Override
+					public void onTimeOut() {
+						comunic.Detener_Actividad();
+					}
+				});
+				thto = new Thread(timeout);
+				thto.setDaemon(true);
+				thto.start();
 				if (n250 == 1) {
 					comunic.enviar('A');
 				} else {
@@ -132,11 +161,12 @@ public class Adquirir_Temperaturas extends Task<Integer> {
 			public void onDataReceived(String dato) {
 				tarea += dato;
 				if (dato.endsWith("/")) {
+					timeout.cancel();
 					comunic.Detener_Actividad();
 					procesar(tarea);
 					tarea = "";
 					if (n250 == 4) {
-						System.out.println("Temperatura Estable");
+//						System.out.println("Temperatura Estable");
 						if (adListener != null)
 							adListener.OnProcTerminated();
 					}
