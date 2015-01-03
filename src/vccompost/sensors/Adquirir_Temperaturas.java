@@ -158,7 +158,7 @@ public class Adquirir_Temperaturas extends Task<Integer> {
 		comunic.setComunicationListener(new OnComunicationListener() {
 
 			@Override
-			public void onDataReceived(String dato) {
+			public void onDataReceived(String dato, int[] ndato) {
 				tarea += dato;
 				if (dato.endsWith("/")) {
 					timeout.cancel();
